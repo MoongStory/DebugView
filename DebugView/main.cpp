@@ -50,8 +50,11 @@ int main()
 
 int IntervalCheckTest()
 {
-	TIME_CHECK::TimeCheck intervalTestWithDesc(timeDelimiter, "IntervalCheckTest 함수 시간 체크");
-	//TIME_CHECK::TimeCheck intervalTestWithDesc(wTimeDelimiter, "Interval");
+	//TIME_CHECK::TimeCheck intervalTestWithDesc(timeDelimiter, "IntervalCheckTest 함수 시간 체크");
+	//TIME_CHECK::TimeCheck intervalTestWithDesc(timeDelimiter, __func__);
+	TIME_CHECK::TimeCheck intervalTestWithDesc(timeDelimiter, __FUNCTION__);
+	//TIME_CHECK::TimeCheck intervalTestWithDesc(wTimeDelimiter, __func__);
+
 	//TIME_CHECK::TimeCheck intervalTest(timeDelimiter);
 	TIME_CHECK::TimeCheck intervalTest(wTimeDelimiter);
 
