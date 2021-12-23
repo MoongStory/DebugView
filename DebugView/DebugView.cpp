@@ -193,7 +193,7 @@ void MOONG::DEBUG_VIEW::DebugView::Print(const char* const token, const char* co
 	CStringA debug_string;
 	debug_string.Format("%s %s %s", this->Get_delimiter().GetBuffer() , token, build_string);
 
-	OutputDebugStringA(debug_string);
+	OutputDebugStringA(debug_string.GetBuffer());
 }
 
 void MOONG::DEBUG_VIEW::DebugView::Print(const char* const token, const wchar_t* const format, va_list arg_ptr)
@@ -207,7 +207,7 @@ void MOONG::DEBUG_VIEW::DebugView::Print(const char* const token, const wchar_t*
 	CStringA debug_string;
 	debug_string.Format("%s %s %s", this->Get_delimiter().GetBuffer(), token, convert_string.GetBuffer());
 
-	OutputDebugStringA(debug_string);
+	OutputDebugStringA(debug_string.GetBuffer());
 }
 
 CStringA MOONG::DEBUG_VIEW::DebugView::Get_delimiter()
