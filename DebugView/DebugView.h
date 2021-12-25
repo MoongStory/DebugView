@@ -44,32 +44,32 @@ namespace MOONG
 			DebugView(const CStringA delimiter, const unsigned int logLevel = DEBUG_VIEW::LOG_LEVEL::LEVEL_WARN);
 
 		public:
-			void Trace(const char* const format, ...);
-			void Trace(const wchar_t* const format, ...);
+			void Trace(const char* const format, ...) const;
+			void Trace(const wchar_t* const format, ...) const;
 
-			void Debug(const char* const format, ...);
-			void Debug(const wchar_t* const format, ...);
+			void Debug(const char* const format, ...) const;
+			void Debug(const wchar_t* const format, ...) const;
 
-			void Info(const char* const format, ...);
-			void Info(const wchar_t* const format, ...);
+			void Info(const char* const format, ...) const;
+			void Info(const wchar_t* const format, ...) const;
 
-			void Warn(const char* const format, ...);
-			void Warn(const wchar_t* const format, ...);
+			void Warn(const char* const format, ...) const;
+			void Warn(const wchar_t* const format, ...) const;
 
-			void Error(const char* const format, ...);
-			void Error(const wchar_t* const format, ...);
+			void Error(const char* const format, ...) const;
+			void Error(const wchar_t* const format, ...) const;
 
-			void Fatal(const char* const format, ...);
-			void Fatal(const wchar_t* const format, ...);
+			void Fatal(const char* const format, ...) const;
+			void Fatal(const wchar_t* const format, ...) const;
 
 		private:
-			void Print(const char* const token, const char* const format, va_list arg_ptr);
-			void Print(const char* const token, const wchar_t* const format, va_list arg_ptr);
+			void Print(const char* const token, const char* const format, va_list arg_ptr) const;
+			void Print(const char* const token, const wchar_t* const format, va_list arg_ptr) const;
 
-			CStringA Get_delimiter();
+			CStringA Get_delimiter() const;
 			void Set_delimiter(CStringA delimiter);
 
-			unsigned int Get_log_level();
+			unsigned int Get_log_level() const;
 			void Set_log_level(unsigned int log_level);
 
 
