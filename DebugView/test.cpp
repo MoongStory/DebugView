@@ -3,8 +3,8 @@
 
 #include "DebugView.h"
 
-const char* const delimiter = "[4444 TEST]";
-const wchar_t* const wDelimiter = L"[4444 TEST]";
+const char* const delimiter = "[MOONG_DEBUG]";
+const wchar_t* const wDelimiter = L"[MOONG_DEBUG]";
 
 int main()
 {
