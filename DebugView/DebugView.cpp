@@ -215,7 +215,7 @@ const CStringA MOONG::DEBUG_VIEW::DebugView::Get_delimiter() const
 	return this->delimiter_;
 }
 
-void MOONG::DEBUG_VIEW::DebugView::Set_delimiter(CStringA delimiter)
+void MOONG::DEBUG_VIEW::DebugView::Set_delimiter(const CStringA delimiter)
 {
 	this->delimiter_ = delimiter;
 }
