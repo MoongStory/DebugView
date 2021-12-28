@@ -66,8 +66,8 @@ namespace MOONG
 			void Print(const char* const token, const char* const format, va_list arg_ptr) const;
 			void Print(const char* const token, const wchar_t* const format, va_list arg_ptr) const;
 
-			CStringA Get_delimiter() const;
-			void Set_delimiter(CStringA delimiter);
+			const CStringA Get_delimiter() const;
+			void Set_delimiter(const CStringA delimiter);
 
 			unsigned int Get_log_level() const;
 			void Set_log_level(unsigned int log_level);
