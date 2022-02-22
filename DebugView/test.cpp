@@ -4,12 +4,12 @@
 #include "DebugView.h"
 
 const char* const delimiter = "[MOONG_DEBUG]";
-const wchar_t* const wDelimiter = L"[MOONG_DEBUG]";
+const wchar_t* const wDelimiter = L"[MOONG_DEBUG_W]";
 
 int main()
 {
-	MOONG::DEBUG_VIEW::DebugView debug(delimiter, MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_TRACE);
-	//MOONG::DEBUG_VIEW::DebugView debug(wDelimiter, MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_TRACE);
+	//MOONG::DEBUG_VIEW::DebugView debug(delimiter, MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_TRACE);
+	MOONG::DEBUG_VIEW::DebugView debug(wDelimiter, MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_TRACE);
 	//MOONG::DEBUG_VIEW::DebugView debug("", MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_TRACE);
 	//MOONG::DEBUG_VIEW::DebugView debug(delimiter);
 	//MOONG::DEBUG_VIEW::DebugView debug(wDelimiter);

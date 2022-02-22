@@ -7,7 +7,7 @@
 #ifndef _DEBUG_VIEW_H_
 #define _DEBUG_VIEW_H_
 
-#include <atlstr.h>
+#include <iostream>
 
 namespace MOONG
 {
@@ -41,7 +41,8 @@ namespace MOONG
 		class DebugView
 		{
 		public:	/* 持失切 & 社瑚切 */
-			DebugView(const CStringA delimiter, const unsigned int logLevel = DEBUG_VIEW::LOG_LEVEL::LEVEL_WARN);
+			DebugView(const std::string delimiter, const unsigned int log_level = DEBUG_VIEW::LOG_LEVEL::LEVEL_WARN);
+			DebugView(const std::wstring wDelimiter, const unsigned int log_level = DEBUG_VIEW::LOG_LEVEL::LEVEL_WARN);
 
 		public:
 			void Trace(const char* const format, ...) const;
@@ -63,18 +64,20 @@ namespace MOONG
 			void Fatal(const wchar_t* const format, ...) const;
 
 		private:
+			void Init(const std::string delimiter, const unsigned int log_level);
+
 			void Print(const char* const token, const char* const format, va_list arg_ptr) const;
 			void Print(const char* const token, const wchar_t* const format, va_list arg_ptr) const;
 
-			const CStringA Get_delimiter() const;
-			void Set_delimiter(const CStringA delimiter);
+			const std::string Get_delimiter() const;
+			void setDelimiter(const std::string delimiter);
 
-			unsigned int Get_log_level() const;
-			void Set_log_level(unsigned int log_level);
+			unsigned int getLogLevel() const;
+			void setLogLevel(unsigned int log_level);
 
 
 		private:
-			CStringA delimiter_;
+			std::string delimiter_;
 			unsigned int log_level_;
 		};
 	}
