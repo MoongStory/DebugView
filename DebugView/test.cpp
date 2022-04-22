@@ -28,15 +28,15 @@ int main()
 
 	CString strTest;
 	strTest.Format(TEXT("test[%c][%d][%s][%.2lf]"), 'a', 3, TEXT("테스트 003"), 2.3456);
-	debug.Debug(strTest);
+	debug.Debug(strTest.GetString());
 
 	CString strTest000;
 	strTest000 = "aaa";
-	debug.Debug(strTest000);
+	debug.Debug(strTest000.GetString());
 
 	CString strTest001;
 	strTest001 = L"bbb";
-	debug.Debug(strTest001);
+	debug.Debug(strTest001.GetString());
 
 	return EXIT_SUCCESS;
 }

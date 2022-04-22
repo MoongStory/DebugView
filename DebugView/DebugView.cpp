@@ -22,7 +22,7 @@ MOONG::DEBUG_VIEW::DebugView::DebugView(const std::wstring wDelimiter, const uns
 
 
 
-void MOONG::DEBUG_VIEW::DebugView::Trace(const char * const format, ...) const
+void MOONG::DEBUG_VIEW::DebugView::Trace(const std::string format, ...) const
 {
 	if(this->getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_TRACE)
 	{
@@ -34,7 +34,7 @@ void MOONG::DEBUG_VIEW::DebugView::Trace(const char * const format, ...) const
 	}
 }
 
-void MOONG::DEBUG_VIEW::DebugView::Trace(const wchar_t * const format, ...) const
+void MOONG::DEBUG_VIEW::DebugView::Trace(const std::wstring format, ...) const
 {
 	if(this->getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_TRACE)
 	{
@@ -48,7 +48,7 @@ void MOONG::DEBUG_VIEW::DebugView::Trace(const wchar_t * const format, ...) cons
 
 
 
-void MOONG::DEBUG_VIEW::DebugView::Debug(const char * const format, ...) const
+void MOONG::DEBUG_VIEW::DebugView::Debug(const std::string format, ...) const
 {
 	if(this->getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_DEBUG)
 	{
@@ -60,7 +60,7 @@ void MOONG::DEBUG_VIEW::DebugView::Debug(const char * const format, ...) const
 	}
 }
 
-void MOONG::DEBUG_VIEW::DebugView::Debug(const wchar_t * const format, ...) const
+void MOONG::DEBUG_VIEW::DebugView::Debug(const std::wstring format, ...) const
 {
 	if(this->getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_DEBUG)
 	{
@@ -74,7 +74,7 @@ void MOONG::DEBUG_VIEW::DebugView::Debug(const wchar_t * const format, ...) cons
 
 
 
-void MOONG::DEBUG_VIEW::DebugView::Info(const char * const format, ...) const
+void MOONG::DEBUG_VIEW::DebugView::Info(const std::string format, ...) const
 {
 	if(this->getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_INFO)
 	{
@@ -86,7 +86,7 @@ void MOONG::DEBUG_VIEW::DebugView::Info(const char * const format, ...) const
 	}
 }
 
-void MOONG::DEBUG_VIEW::DebugView::Info(const wchar_t * const format, ...) const
+void MOONG::DEBUG_VIEW::DebugView::Info(const std::wstring format, ...) const
 {
 	if(this->getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_INFO)
 	{
@@ -100,7 +100,7 @@ void MOONG::DEBUG_VIEW::DebugView::Info(const wchar_t * const format, ...) const
 
 
 
-void MOONG::DEBUG_VIEW::DebugView::Warn(const char * const format, ...) const
+void MOONG::DEBUG_VIEW::DebugView::Warn(const std::string format, ...) const
 {
 	if(this->getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_WARN)
 	{
@@ -112,7 +112,7 @@ void MOONG::DEBUG_VIEW::DebugView::Warn(const char * const format, ...) const
 	}
 }
 
-void MOONG::DEBUG_VIEW::DebugView::Warn(const wchar_t * const format, ...) const
+void MOONG::DEBUG_VIEW::DebugView::Warn(const std::wstring format, ...) const
 {
 	if(this->getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_WARN)
 	{
@@ -126,7 +126,7 @@ void MOONG::DEBUG_VIEW::DebugView::Warn(const wchar_t * const format, ...) const
 
 
 
-void MOONG::DEBUG_VIEW::DebugView::Error(const char * const format, ...) const
+void MOONG::DEBUG_VIEW::DebugView::Error(const std::string format, ...) const
 {
 	if(this->getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_ERROR)
 	{
@@ -138,7 +138,7 @@ void MOONG::DEBUG_VIEW::DebugView::Error(const char * const format, ...) const
 	}
 }
 
-void MOONG::DEBUG_VIEW::DebugView::Error(const wchar_t * const format, ...) const
+void MOONG::DEBUG_VIEW::DebugView::Error(const std::wstring format, ...) const
 {
 	if(this->getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_ERROR)
 	{
@@ -152,7 +152,7 @@ void MOONG::DEBUG_VIEW::DebugView::Error(const wchar_t * const format, ...) cons
 
 
 
-void MOONG::DEBUG_VIEW::DebugView::Fatal(const char * const format, ...) const
+void MOONG::DEBUG_VIEW::DebugView::Fatal(const std::string format, ...) const
 {
 	if(this->getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_FATAL)
 	{
@@ -164,7 +164,7 @@ void MOONG::DEBUG_VIEW::DebugView::Fatal(const char * const format, ...) const
 	}
 }
 
-void MOONG::DEBUG_VIEW::DebugView::Fatal(const wchar_t * const format, ...) const
+void MOONG::DEBUG_VIEW::DebugView::Fatal(const std::wstring format, ...) const
 {
 	if(this->getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_FATAL)
 	{
@@ -200,11 +200,11 @@ void MOONG::DEBUG_VIEW::DebugView::Init(const std::string delimiter, const unsig
 	}
 }
 
-void MOONG::DEBUG_VIEW::DebugView::Print(const char* const token, const char* const format, va_list arg_ptr) const
+void MOONG::DEBUG_VIEW::DebugView::Print(const std::string token, const std::string format, va_list arg_ptr) const
 {
 	char build_string[kMaxBufSize] = { 0 };
 
-	StringCchVPrintfA(build_string, kMaxBufSize, format, arg_ptr);
+	StringCchVPrintfA(build_string, kMaxBufSize, format.c_str(), arg_ptr);
 
 	std::string debug_string(this->Get_delimiter());
 	debug_string += " ";
@@ -215,11 +215,11 @@ void MOONG::DEBUG_VIEW::DebugView::Print(const char* const token, const char* co
 	OutputDebugStringA(debug_string.c_str());
 }
 
-void MOONG::DEBUG_VIEW::DebugView::Print(const char* const token, const wchar_t* const format, va_list arg_ptr) const
+void MOONG::DEBUG_VIEW::DebugView::Print(const std::string token, const std::wstring format, va_list arg_ptr) const
 {
 	wchar_t build_string[kMaxBufSize] = { 0 };
 
-	StringCchVPrintfW(build_string, kMaxBufSize, format, arg_ptr);
+	StringCchVPrintfW(build_string, kMaxBufSize, format.c_str(), arg_ptr);
 
 	const size_t convert_string_size = (wcslen(build_string) + 1) * 2;
 	char* convert_string = new char[convert_string_size];
