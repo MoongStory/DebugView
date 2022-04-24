@@ -23,59 +23,54 @@ namespace MOONG
 			LEVEL_FATAL			// 가장 크리티컬한 에러가 일어났을 때 사용한다.
 		};
 
-		namespace TOKEN
-		{
-			const std::string TRACE_ = "[TRACE]";
-			const std::string DEBUG_ = "[DEBUG]";
-			const std::string INFO_ = "[INFO]";
-			const std::string WARN_ = "[WARN]";
-			const std::string ERROR_ = "[ERROR]";
-			const std::string FATAL_ = "[FATAL]";
-		}
-
-		const unsigned int kMaxBufSize = 1024;
-
 		class DebugView
 		{
-		public:	/* 생성자 & 소멸자 */
-			DebugView(const std::string delimiter, const unsigned int log_level = DEBUG_VIEW::LOG_LEVEL::LEVEL_WARN);
-			DebugView(const std::wstring wDelimiter, const unsigned int log_level = DEBUG_VIEW::LOG_LEVEL::LEVEL_WARN);
+		public:
+		protected:
+		private:
+			static const std::string TRACE_;
+			static const std::string DEBUG_;
+			static const std::string INFO_;
+			static const std::string WARN_;
+			static const std::string ERROR_;
+			static const std::string FATAL_;
+
+			static const unsigned int max_buf_size_;
+			static std::string delimiter_;
+			static unsigned int log_level_;
+
+
 
 		public:
-			void Trace(const std::string format, ...) const;
-			void Trace(const std::wstring format, ...) const;
+			static void Trace(const std::string format, ...);
+			static void Trace(const std::wstring format, ...);
 
-			void Debug(const std::string format, ...) const;
-			void Debug(const std::wstring format, ...) const;
+			static void Debug(const std::string format, ...);
+			static void Debug(const std::wstring format, ...);
 
-			void Info(const std::string format, ...) const;
-			void Info(const std::wstring format, ...) const;
+			static void Info(const std::string format, ...);
+			static void Info(const std::wstring format, ...);
 
-			void Warn(const std::string format, ...) const;
-			void Warn(const std::wstring format, ...) const;
+			static void Warn(const std::string format, ...);
+			static void Warn(const std::wstring format, ...);
 
-			void Error(const std::string format, ...) const;
-			void Error(const std::wstring format, ...) const;
+			static void Error(const std::string format, ...);
+			static void Error(const std::wstring format, ...);
 
-			void Fatal(const std::string format, ...) const;
-			void Fatal(const std::wstring format, ...) const;
+			static void Fatal(const std::string format, ...);
+			static void Fatal(const std::wstring format, ...);
 
+
+
+			static const std::string Get_delimiter();
+			static void setDelimiter(const std::string delimiter);
+			static void setDelimiter(const std::wstring wDelimiter);
+
+			static unsigned int getLogLevel();
+			static void setLogLevel(unsigned int log_level);
 		private:
-			void Init(const std::string delimiter, const unsigned int log_level);
-
-			void Print(const std::string token, const std::string format, va_list arg_ptr) const;
-			void Print(const std::string token, const std::wstring format, va_list arg_ptr) const;
-
-			const std::string Get_delimiter() const;
-			void setDelimiter(const std::string delimiter);
-
-			unsigned int getLogLevel() const;
-			void setLogLevel(unsigned int log_level);
-
-
-		private:
-			std::string delimiter_;
-			unsigned int log_level_;
+			static void Print(const std::string token, const std::string format, va_list arg_ptr);
+			static void Print(const std::string token, const std::wstring format, va_list arg_ptr);
 		};
 	}
 }
