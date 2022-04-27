@@ -13,15 +13,18 @@ namespace MOONG
 {
 	namespace DEBUG_VIEW
 	{
-		enum LOG_LEVEL
+		namespace LOG_LEVEL
 		{
-			LEVEL_TRACE = 0,	// 경로 추적을 위해 사용한다.
-			LEVEL_DEBUG,		// 일반 정보를 상세히 나타낼 때 사용한다.
-			LEVEL_INFO,			// 일반 정보를 나타낼 때 사용한다.
-			LEVEL_WARN,			// 에러는 아니지만 주의할 필요가 있을 때 사용한다.
-			LEVEL_ERROR,		// 일반 에러가 일어났을 때 사용한다.
-			LEVEL_FATAL			// 가장 크리티컬한 에러가 일어났을 때 사용한다.
-		};
+			enum LOG_LEVEL
+			{
+				LEVEL_TRACE = 0,	// 경로 추적을 위해 사용한다.
+				LEVEL_DEBUG,		// 일반 정보를 상세히 나타낼 때 사용한다.
+				LEVEL_INFO,			// 일반 정보를 나타낼 때 사용한다.
+				LEVEL_WARN,			// 에러는 아니지만 주의할 필요가 있을 때 사용한다.
+				LEVEL_ERROR,		// 일반 에러가 일어났을 때 사용한다.
+				LEVEL_FATAL			// 가장 크리티컬한 에러가 일어났을 때 사용한다.
+			};
+		}
 
 		class DebugView
 		{
