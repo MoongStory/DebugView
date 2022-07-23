@@ -69,6 +69,8 @@ namespace MOONG
 		
 		static unsigned int getLogLevel();
 		static void setLogLevel(unsigned int log_level);
+
+		static const unsigned int getMaxBufSize();
 	private:
 		static void Print(const std::string token, const std::string format, va_list arg_ptr);
 		static void Print(const std::string token, const std::wstring format, va_list arg_ptr);

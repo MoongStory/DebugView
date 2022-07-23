@@ -222,6 +222,11 @@ void MOONG::DebugView::setLogLevel(unsigned int log_level)
 	}
 }
 
+const unsigned int MOONG::DebugView::getMaxBufSize()
+{
+	return MOONG::DebugView::max_buf_size_;
+}
+
 
 
 
