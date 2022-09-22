@@ -1,7 +1,8 @@
 #include "DebugView.h"
 
+#include "../../ConvertString/ConvertString/ConvertString.h"
+
 #include <windows.h>
-#include <locale.h>
 #include <strsafe.h>
 
 const std::string MOONG::DebugView::TRACE_ = "[TRACE]";
@@ -188,18 +189,7 @@ void MOONG::DebugView::setDelimiter(const std::string delimiter)
 
 void MOONG::DebugView::setDelimiter(const std::wstring wDelimiter)
 {
-	const size_t delimiter_size = (wDelimiter.length() + 1) * 2;
-	char* delimiter = new char[delimiter_size];
-#if _MSC_VER > 1200
-	size_t convertedChars = 0;
-	wcstombs_s(&convertedChars, delimiter, delimiter_size, wDelimiter.c_str(), _TRUNCATE);
-#else
-	wcstombs(delimiter, wDelimiter.c_str(), delimiter_size);
-#endif
-
-	MOONG::DebugView::setDelimiter(delimiter);
-
-	delete[] delimiter;
+	MOONG::DebugView::setDelimiter(MOONG::ConvertString::wstring_to_string(wDelimiter));
 }
 
 unsigned int MOONG::DebugView::getLogLevel()
@@ -252,23 +242,11 @@ void MOONG::DebugView::Print(const std::string token, const std::wstring format,
 
 	StringCchVPrintfW(build_string, MOONG::DebugView::max_buf_size_, format.c_str(), arg_ptr);
 
-	size_t convert_string_size = (wcslen(build_string) + 1) * 2;
-	char* convert_string = new char[convert_string_size];
-	setlocale(LC_ALL, "korean"); // 이 코드가 있어야 wcstombs_s에서 한글이 정상적으로 변환이 된다.
-#if _MSC_VER > 1200
-	size_t convertedChars = 0;
-	wcstombs_s(&convertedChars, convert_string, convert_string_size, build_string, _TRUNCATE);
-#else
-	wcstombs(convert_string, build_string, convert_string_size);
-#endif
-
 	std::string debug_string(MOONG::DebugView::Get_delimiter());
 	debug_string += " ";
 	debug_string += token;
 	debug_string += " ";
-	debug_string += convert_string;
-
-	delete[] convert_string;
+	debug_string += MOONG::ConvertString::wstring_to_string(build_string);
 
 	OutputDebugStringA(debug_string.c_str());
 }
