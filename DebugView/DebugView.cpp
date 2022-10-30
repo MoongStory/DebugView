@@ -1,7 +1,7 @@
 #include "DebugView.h"
 
-// https://github.com/MoongStory/ConvertString
-#include "../../ConvertString/ConvertString/ConvertString.h"
+// https://github.com/MoongStory/ConvertDataType
+#include "../../ConvertDataType/ConvertDataType/ConvertDataType.h"
 
 #include <windows.h>
 #include <strsafe.h>
@@ -190,7 +190,7 @@ void MOONG::DebugView::setDelimiter(const std::string delimiter)
 
 void MOONG::DebugView::setDelimiter(const std::wstring wDelimiter)
 {
-	MOONG::DebugView::setDelimiter(MOONG::ConvertString::wstring_to_string(wDelimiter));
+	MOONG::DebugView::setDelimiter(MOONG::ConvertDataType::wstring_to_string(wDelimiter));
 }
 
 unsigned int MOONG::DebugView::getLogLevel()
@@ -247,7 +247,7 @@ void MOONG::DebugView::Print(const std::string token, const std::wstring format,
 	debug_string += " ";
 	debug_string += token;
 	debug_string += " ";
-	debug_string += MOONG::ConvertString::wstring_to_string(build_string);
+	debug_string += MOONG::ConvertDataType::wstring_to_string(build_string);
 
 	OutputDebugStringA(debug_string.c_str());
 }
