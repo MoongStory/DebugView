@@ -3,6 +3,9 @@
 // https://github.com/MoongStory/ConvertDataType
 #include "../../ConvertDataType/ConvertDataType/ConvertDataType.h"
 
+// https://github.com/MoongStory/Exception
+#include "../../Exception/Exception/Exception.h"
+
 #include <windows.h>
 #include <strsafe.h>
 
@@ -226,7 +229,10 @@ void MOONG::DebugView::Print(const std::string token, const std::string format, 
 {
 	char build_string[MOONG::DebugView::max_buf_size_] = { 0 };
 
-	StringCchVPrintfA(build_string, MOONG::DebugView::max_buf_size_, format.c_str(), arg_ptr);
+	if (FAILED(StringCchVPrintfA(build_string, MOONG::DebugView::max_buf_size_, format.c_str(), arg_ptr)))
+	{
+		throw MOONG::ExceptionFunctionCallFailed<DWORD>("StringCchVPrintfA");
+	}
 
 	std::string debug_string(MOONG::DebugView::Get_delimiter());
 	debug_string += " ";
@@ -241,7 +247,10 @@ void MOONG::DebugView::Print(const std::string token, const std::wstring format,
 {
 	wchar_t build_string[MOONG::DebugView::max_buf_size_] = { 0 };
 
-	StringCchVPrintfW(build_string, MOONG::DebugView::max_buf_size_, format.c_str(), arg_ptr);
+	if (FAILED(StringCchVPrintfW(build_string, MOONG::DebugView::max_buf_size_, format.c_str(), arg_ptr)))
+	{
+		throw MOONG::ExceptionFunctionCallFailed<DWORD>("StringCchVPrintfW");
+	}
 
 	std::string debug_string(MOONG::DebugView::Get_delimiter());
 	debug_string += " ";
