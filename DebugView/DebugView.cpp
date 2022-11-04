@@ -225,7 +225,7 @@ const unsigned int MOONG::DebugView::getMaxBufSize()
 
 
 
-void MOONG::DebugView::Print(const std::string token, const std::string format, va_list arg_ptr)
+void MOONG::DebugView::Print(const std::string token, const std::string format, va_list arg_ptr) noexcept(false)
 {
 	char build_string[MOONG::DebugView::max_buf_size_] = { 0 };
 
@@ -243,7 +243,7 @@ void MOONG::DebugView::Print(const std::string token, const std::string format, 
 	OutputDebugStringA(debug_string.c_str());
 }
 
-void MOONG::DebugView::Print(const std::string token, const std::wstring format, va_list arg_ptr)
+void MOONG::DebugView::Print(const std::string token, const std::wstring format, va_list arg_ptr) noexcept(false)
 {
 	wchar_t build_string[MOONG::DebugView::max_buf_size_] = { 0 };
 
