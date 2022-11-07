@@ -9,6 +9,9 @@
 
 #include <iostream>
 
+// https://github.com/MoongStory/Exception
+#include "../../Exception/Exception/Exception.h"
+
 namespace MOONG
 {
 	namespace DEBUG_VIEW
@@ -43,23 +46,23 @@ namespace MOONG
 		
 		
 	public:
-		static void Trace(const std::string format, ...);
-		static void Trace(const std::wstring format, ...);
+		static void Trace(const std::string format, ...) noexcept(false);
+		static void Trace(const std::wstring format, ...) noexcept(false);
 		
-		static void Debug(const std::string format, ...);
-		static void Debug(const std::wstring format, ...);
+		static void Debug(const std::string format, ...) noexcept(false);
+		static void Debug(const std::wstring format, ...) noexcept(false);
 		
-		static void Info(const std::string format, ...);
-		static void Info(const std::wstring format, ...);
+		static void Info(const std::string format, ...) noexcept(false);
+		static void Info(const std::wstring format, ...) noexcept(false);
 		
-		static void Warn(const std::string format, ...);
-		static void Warn(const std::wstring format, ...);
+		static void Warn(const std::string format, ...) noexcept(false);
+		static void Warn(const std::wstring format, ...) noexcept(false);
 		
-		static void Error(const std::string format, ...);
-		static void Error(const std::wstring format, ...);
+		static void Error(const std::string format, ...) noexcept(false);
+		static void Error(const std::wstring format, ...) noexcept(false);
 		
-		static void Fatal(const std::string format, ...);
-		static void Fatal(const std::wstring format, ...);
+		static void Fatal(const std::string format, ...) noexcept(false);
+		static void Fatal(const std::wstring format, ...) noexcept(false);
 		
 		
 		

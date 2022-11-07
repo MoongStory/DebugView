@@ -3,9 +3,6 @@
 // https://github.com/MoongStory/ConvertDataType
 #include "../../ConvertDataType/ConvertDataType/ConvertDataType.h"
 
-// https://github.com/MoongStory/Exception
-#include "../../Exception/Exception/Exception.h"
-
 #include <windows.h>
 #include <strsafe.h>
 
@@ -20,159 +17,245 @@ const unsigned int MOONG::DebugView::max_buf_size_ = 1024;
 std::string MOONG::DebugView::delimiter_ = "[MOONG_DEBUG]";
 unsigned int MOONG::DebugView::log_level_ = MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_TRACE;
 
-void MOONG::DebugView::Trace(const std::string format, ...)
+void MOONG::DebugView::Trace(const std::string format, ...) noexcept(false)
 {
 	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_TRACE)
 	{
 		va_list arg_ptr;
 
 		va_start(arg_ptr, format);
-		MOONG::DebugView::Print(MOONG::DebugView::TRACE_, format, arg_ptr);
+		try
+		{
+			MOONG::DebugView::Print(MOONG::DebugView::TRACE_, format, arg_ptr);
+		}
+		catch (const MOONG::ExceptionFunctionCallFailed<DWORD>& exception)
+		{
+			throw exception;
+		}
 		va_end(arg_ptr);
 	}
 }
 
-void MOONG::DebugView::Trace(const std::wstring format, ...)
+void MOONG::DebugView::Trace(const std::wstring format, ...) noexcept(false)
 {
 	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_TRACE)
 	{
 		va_list arg_ptr;
 
 		va_start(arg_ptr, format);
-		MOONG::DebugView::Print(MOONG::DebugView::TRACE_, format, arg_ptr);
+		try
+		{
+			MOONG::DebugView::Print(MOONG::DebugView::TRACE_, format, arg_ptr);
+		}
+		catch (const MOONG::ExceptionFunctionCallFailed<DWORD>& exception)
+		{
+			throw exception;
+		}
 		va_end(arg_ptr);
 	}
 }
 
 
 
-void MOONG::DebugView::Debug(const std::string format, ...)
+void MOONG::DebugView::Debug(const std::string format, ...) noexcept(false)
 {
 	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_DEBUG)
 	{
 		va_list arg_ptr;
 
 		va_start(arg_ptr, format);
-		MOONG::DebugView::Print(MOONG::DebugView::DEBUG_, format, arg_ptr);
+		try
+		{
+			MOONG::DebugView::Print(MOONG::DebugView::DEBUG_, format, arg_ptr);
+		}
+		catch (const MOONG::ExceptionFunctionCallFailed<DWORD>& exception)
+		{
+			throw exception;
+		}
 		va_end(arg_ptr);
 	}
 }
 
-void MOONG::DebugView::Debug(const std::wstring format, ...)
+void MOONG::DebugView::Debug(const std::wstring format, ...) noexcept(false)
 {
 	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_DEBUG)
 	{
 		va_list arg_ptr;
 
 		va_start(arg_ptr, format);
-		MOONG::DebugView::Print(MOONG::DebugView::DEBUG_, format, arg_ptr);
+		try
+		{
+			MOONG::DebugView::Print(MOONG::DebugView::DEBUG_, format, arg_ptr);
+		}
+		catch (const MOONG::ExceptionFunctionCallFailed<DWORD>& exception)
+		{
+			throw exception;
+		}
 		va_end(arg_ptr);
 	}
 }
 
 
 
-void MOONG::DebugView::Info(const std::string format, ...)
+void MOONG::DebugView::Info(const std::string format, ...) noexcept(false)
 {
 	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_INFO)
 	{
 		va_list arg_ptr;
 
 		va_start(arg_ptr, format);
-		MOONG::DebugView::Print(MOONG::DebugView::INFO_, format, arg_ptr);
+		try
+		{
+			MOONG::DebugView::Print(MOONG::DebugView::INFO_, format, arg_ptr);
+		}
+		catch (const MOONG::ExceptionFunctionCallFailed<DWORD>& exception)
+		{
+			throw exception;
+		}
 		va_end(arg_ptr);
 	}
 }
 
-void MOONG::DebugView::Info(const std::wstring format, ...)
+void MOONG::DebugView::Info(const std::wstring format, ...) noexcept(false)
 {
 	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_INFO)
 	{
 		va_list arg_ptr;
 
 		va_start(arg_ptr, format);
-		MOONG::DebugView::Print(MOONG::DebugView::INFO_, format, arg_ptr);
+		try
+		{
+			MOONG::DebugView::Print(MOONG::DebugView::INFO_, format, arg_ptr);
+		}
+		catch (const MOONG::ExceptionFunctionCallFailed<DWORD>& exception)
+		{
+			throw exception;
+		}
 		va_end(arg_ptr);
 	}
 }
 
 
 
-void MOONG::DebugView::Warn(const std::string format, ...)
+void MOONG::DebugView::Warn(const std::string format, ...) noexcept(false)
 {
 	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_WARN)
 	{
 		va_list arg_ptr;
 
 		va_start(arg_ptr, format);
-		MOONG::DebugView::Print(MOONG::DebugView::WARN_, format, arg_ptr);
+		try
+		{
+			MOONG::DebugView::Print(MOONG::DebugView::WARN_, format, arg_ptr);
+		}
+		catch (const MOONG::ExceptionFunctionCallFailed<DWORD>& exception)
+		{
+			throw exception;
+		}
 		va_end(arg_ptr);
 	}
 }
 
-void MOONG::DebugView::Warn(const std::wstring format, ...)
+void MOONG::DebugView::Warn(const std::wstring format, ...) noexcept(false)
 {
 	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_WARN)
 	{
 		va_list arg_ptr;
 
 		va_start(arg_ptr, format);
-		MOONG::DebugView::Print(MOONG::DebugView::WARN_, format, arg_ptr);
+		try
+		{
+			MOONG::DebugView::Print(MOONG::DebugView::WARN_, format, arg_ptr);
+		}
+		catch (const MOONG::ExceptionFunctionCallFailed<DWORD>& exception)
+		{
+			throw exception;
+		}
 		va_end(arg_ptr);
 	}
 }
 
 
 
-void MOONG::DebugView::Error(const std::string format, ...)
+void MOONG::DebugView::Error(const std::string format, ...) noexcept(false)
 {
 	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_ERROR)
 	{
 		va_list arg_ptr;
 
 		va_start(arg_ptr, format);
-		MOONG::DebugView::Print(MOONG::DebugView::ERROR_, format, arg_ptr);
+		try
+		{
+			MOONG::DebugView::Print(MOONG::DebugView::ERROR_, format, arg_ptr);
+		}
+		catch (const MOONG::ExceptionFunctionCallFailed<DWORD>& exception)
+		{
+			throw exception;
+		}
 		va_end(arg_ptr);
 	}
 }
 
-void MOONG::DebugView::Error(const std::wstring format, ...)
+void MOONG::DebugView::Error(const std::wstring format, ...) noexcept(false)
 {
 	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_ERROR)
 	{
 		va_list arg_ptr;
 
 		va_start(arg_ptr, format);
-		MOONG::DebugView::Print(MOONG::DebugView::ERROR_, format, arg_ptr);
+		try
+		{
+			MOONG::DebugView::Print(MOONG::DebugView::ERROR_, format, arg_ptr);
+		}
+		catch (const MOONG::ExceptionFunctionCallFailed<DWORD>& exception)
+		{
+			throw exception;
+		}
 		va_end(arg_ptr);
 	}
 }
 
 
 
-void MOONG::DebugView::Fatal(const std::string format, ...)
+void MOONG::DebugView::Fatal(const std::string format, ...) noexcept(false)
 {
 	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_FATAL)
 	{
 		va_list arg_ptr;
 
 		va_start(arg_ptr, format);
-		MOONG::DebugView::Print(MOONG::DebugView::FATAL_, format, arg_ptr);
+		try
+		{
+			MOONG::DebugView::Print(MOONG::DebugView::FATAL_, format, arg_ptr);
+		}
+		catch (const MOONG::ExceptionFunctionCallFailed<DWORD>& exception)
+		{
+			throw exception;
+		}
 		va_end(arg_ptr);
 	}
 }
 
-void MOONG::DebugView::Fatal(const std::wstring format, ...)
+void MOONG::DebugView::Fatal(const std::wstring format, ...) noexcept(false)
 {
 	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_FATAL)
 	{
 		va_list arg_ptr;
 
 		va_start(arg_ptr, format);
-		MOONG::DebugView::Print(MOONG::DebugView::FATAL_, format, arg_ptr);
+		try
+		{
+			MOONG::DebugView::Print(MOONG::DebugView::FATAL_, format, arg_ptr);
+		}
+		catch (const MOONG::ExceptionFunctionCallFailed<DWORD>& exception)
+		{
+			throw exception;
+		}
 		va_end(arg_ptr);
 	}
 }
+
+
 
 const std::string MOONG::DebugView::Get_delimiter()
 {
