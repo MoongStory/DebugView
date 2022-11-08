@@ -47,9 +47,9 @@ int main()
 		MOONG::DebugView::Debug(strTest002.GetString());
 		MOONG::DebugView::Fatal(strTest002.GetString());
 	}
-	catch (MOONG::ExceptionFunctionCallFailed<DWORD>& exception)
+	catch (const MOONG::ExceptionFunctionCallFailed& exception)
 	{
-		std::cout << exception.getReason().c_str() << std::endl;
+		std::cout << exception.what() << std::endl;
 	}
 
 	return EXIT_SUCCESS;
