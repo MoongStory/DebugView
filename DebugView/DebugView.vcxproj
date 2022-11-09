@@ -147,7 +147,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\ConvertDataType\ConvertDataType\ConvertDataType.h" />
-    <ClInclude Include="..\..\Exception\Exception\Exception.h" />
     <ClInclude Include="DebugView.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -43,37 +43,37 @@ namespace MOONG
 		
 		
 	public:
-		static void Trace(const std::string format, ...) noexcept(false);
-		static void Trace(const std::wstring format, ...) noexcept(false);
+		static void Trace(const std::string format, ...);
+		static void Trace(const std::wstring format, ...);
 		
-		static void Debug(const std::string format, ...) noexcept(false);
-		static void Debug(const std::wstring format, ...) noexcept(false);
+		static void Debug(const std::string format, ...);
+		static void Debug(const std::wstring format, ...);
 		
-		static void Info(const std::string format, ...) noexcept(false);
-		static void Info(const std::wstring format, ...) noexcept(false);
+		static void Info(const std::string format, ...);
+		static void Info(const std::wstring format, ...);
 		
-		static void Warn(const std::string format, ...) noexcept(false);
-		static void Warn(const std::wstring format, ...) noexcept(false);
+		static void Warn(const std::string format, ...);
+		static void Warn(const std::wstring format, ...);
 		
-		static void Error(const std::string format, ...) noexcept(false);
-		static void Error(const std::wstring format, ...) noexcept(false);
+		static void Error(const std::string format, ...);
+		static void Error(const std::wstring format, ...);
 		
-		static void Fatal(const std::string format, ...) noexcept(false);
-		static void Fatal(const std::wstring format, ...) noexcept(false);
+		static void Fatal(const std::string format, ...);
+		static void Fatal(const std::wstring format, ...);
 		
 		
 		
 		static const std::string Get_delimiter();
 		static void setDelimiter(const std::string delimiter);
-		static void setDelimiter(const std::wstring wDelimiter);
+		static void setDelimiter(const std::wstring wDelimiter) noexcept(false);
 		
 		static unsigned int getLogLevel();
 		static void setLogLevel(unsigned int log_level);
 
 		static const unsigned int getMaxBufSize();
 	private:
-		static void Print(const std::string token, const std::string format, va_list arg_ptr) noexcept(false);
-		static void Print(const std::string token, const std::wstring format, va_list arg_ptr) noexcept(false);
+		static void Print(const std::string token, const std::string format, va_list arg_ptr);
+		static void Print(const std::string token, const std::wstring format, va_list arg_ptr);
 	};
 }
 
