@@ -9,9 +9,6 @@
 
 #include <iostream>
 
-// https://github.com/MoongStory/Exception
-#include "../../Exception/Exception/Exception.h"
-
 namespace MOONG
 {
 	namespace DEBUG_VIEW

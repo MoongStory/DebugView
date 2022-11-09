@@ -1,7 +1,7 @@
-﻿#include <iostream>
-#include <atlstr.h>	// TEXT, CString 사용을 위해
+﻿#include "DebugView.h"
 
-#include "DebugView.h"
+#include <iostream>
+#include <atlstr.h>	// TEXT, CString 사용을 위해
 
 const char* const delimiter = "[MOONG_DEBUG]";
 const wchar_t* const wDelimiter = L"[MOONG_DEBUG_W]";
@@ -47,7 +47,7 @@ int main()
 		MOONG::DebugView::Debug(strTest002.GetString());
 		MOONG::DebugView::Fatal(strTest002.GetString());
 	}
-	catch (const MOONG::ExceptionFunctionCallFailed& exception)
+	catch (const std::exception& exception)
 	{
 		std::cout << exception.what() << std::endl;
 	}
