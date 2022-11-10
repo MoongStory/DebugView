@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{d21eefd2-f162-4f52-aabc-c912c4f755ac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DebugView.cpp">
@@ -22,7 +25,7 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="..\..\ConvertDataType\ConvertDataType\ConvertDataType.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -30,7 +33,7 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="..\..\ConvertDataType\ConvertDataType\ConvertDataType.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
