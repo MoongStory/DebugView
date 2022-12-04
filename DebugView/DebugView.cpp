@@ -13,7 +13,7 @@ const std::string MOONG::DebugView::WARN_ = "[WARN]";
 const std::string MOONG::DebugView::ERROR_ = "[ERROR]";
 const std::string MOONG::DebugView::FATAL_ = "[FATAL]";
 
-const unsigned int MOONG::DebugView::max_buf_size_ = 1024;
+const unsigned int MOONG::DebugView::max_buf_size_ = 2048;
 std::string MOONG::DebugView::delimiter_ = "[MOONG_DEBUG]";
 unsigned int MOONG::DebugView::log_level_ = MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_TRACE;
 
