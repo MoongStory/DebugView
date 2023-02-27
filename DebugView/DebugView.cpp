@@ -208,7 +208,7 @@ void MOONG::DebugView::setDelimiter(const std::string delimiter)
 	}
 }
 
-void MOONG::DebugView::setDelimiter(const std::wstring wDelimiter) noexcept(false)
+void MOONG::DebugView::setDelimiter(const std::wstring wDelimiter)
 {
 	try
 	{

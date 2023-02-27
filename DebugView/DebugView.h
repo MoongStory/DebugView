@@ -94,7 +94,7 @@ namespace MOONG
 		
 		static const std::string Get_delimiter();
 		static void setDelimiter(const std::string delimiter);
-		static void setDelimiter(const std::wstring wDelimiter) noexcept(false);
+		static void setDelimiter(const std::wstring wDelimiter);
 		
 		static unsigned int getLogLevel();
 		static void setLogLevel(unsigned int log_level);
