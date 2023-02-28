@@ -1,6 +1,5 @@
 #include "DebugView.h"
 
-// https://github.com/MoongStory/ConvertDataType
 #include "../../ConvertDataType/ConvertDataType/ConvertDataType.h"
 
 #include <windows.h>
