@@ -27,12 +27,18 @@
     <ClCompile Include="..\..\ConvertDataType\ConvertDataType\ConvertDataType.cpp">
       <Filter>Common</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\StringTool\StringTool\StringTool.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DebugView.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="..\..\ConvertDataType\ConvertDataType\ConvertDataType.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\StringTool\StringTool\StringTool.h">
       <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>

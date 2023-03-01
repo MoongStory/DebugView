@@ -102,7 +102,6 @@ namespace MOONG
 		static const unsigned int getMaxBufSize();
 	private:
 		static void Print_(const std::string token, const std::string format, va_list arg_ptr);
-		static void Print_(const std::string token, const std::wstring format, va_list arg_ptr);
 	};
 }
 

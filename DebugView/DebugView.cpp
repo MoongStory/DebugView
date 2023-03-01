@@ -35,7 +35,7 @@ void MOONG::DebugView::Trace(const std::wstring format, ...)
 		va_list arg_ptr;
 
 		va_start(arg_ptr, format);
-		MOONG::DebugView::Print_(MOONG::DebugView::TRACE_, format, arg_ptr);
+		MOONG::DebugView::Print_(MOONG::DebugView::TRACE_, MOONG::ConvertDataType::wstring_to_string(format), arg_ptr);
 		va_end(arg_ptr);
 	}
 }
@@ -61,7 +61,7 @@ void MOONG::DebugView::Debug(const std::wstring format, ...)
 		va_list arg_ptr;
 
 		va_start(arg_ptr, format);
-		MOONG::DebugView::Print_(MOONG::DebugView::DEBUG_, format, arg_ptr);
+		MOONG::DebugView::Print_(MOONG::DebugView::DEBUG_, MOONG::ConvertDataType::wstring_to_string(format), arg_ptr);
 		va_end(arg_ptr);
 	}
 }
@@ -87,7 +87,7 @@ void MOONG::DebugView::Info(const std::wstring format, ...)
 		va_list arg_ptr;
 
 		va_start(arg_ptr, format);
-		MOONG::DebugView::Print_(MOONG::DebugView::INFO_, format, arg_ptr);
+		MOONG::DebugView::Print_(MOONG::DebugView::INFO_, MOONG::ConvertDataType::wstring_to_string(format), arg_ptr);
 		va_end(arg_ptr);
 	}
 }
@@ -113,7 +113,7 @@ void MOONG::DebugView::Warn(const std::wstring format, ...)
 		va_list arg_ptr;
 
 		va_start(arg_ptr, format);
-		MOONG::DebugView::Print_(MOONG::DebugView::WARN_, format, arg_ptr);
+		MOONG::DebugView::Print_(MOONG::DebugView::WARN_, MOONG::ConvertDataType::wstring_to_string(format), arg_ptr);
 		va_end(arg_ptr);
 	}
 }
@@ -139,7 +139,7 @@ void MOONG::DebugView::Error(const std::wstring format, ...)
 		va_list arg_ptr;
 
 		va_start(arg_ptr, format);
-		MOONG::DebugView::Print_(MOONG::DebugView::ERROR_, format, arg_ptr);
+		MOONG::DebugView::Print_(MOONG::DebugView::ERROR_, MOONG::ConvertDataType::wstring_to_string(format), arg_ptr);
 		va_end(arg_ptr);
 	}
 }
@@ -165,7 +165,7 @@ void MOONG::DebugView::Fatal(const std::wstring format, ...)
 		va_list arg_ptr;
 
 		va_start(arg_ptr, format);
-		MOONG::DebugView::Print_(MOONG::DebugView::FATAL_, format, arg_ptr);
+		MOONG::DebugView::Print_(MOONG::DebugView::FATAL_, MOONG::ConvertDataType::wstring_to_string(format), arg_ptr);
 		va_end(arg_ptr);
 	}
 }
@@ -184,7 +184,7 @@ void MOONG::DebugView::Print(const std::wstring format, ...)
 	va_list arg_ptr;
 
 	va_start(arg_ptr, format);
-	MOONG::DebugView::Print_("", format, arg_ptr);
+	MOONG::DebugView::Print_("", MOONG::ConvertDataType::wstring_to_string(format), arg_ptr);
 	va_end(arg_ptr);
 }
 
@@ -262,24 +262,6 @@ void MOONG::DebugView::Print_(const std::string token, const std::string format,
 		debug_string += " ";
 	}
 	debug_string += build_string;
-
-	OutputDebugStringA(debug_string.c_str());
-}
-
-void MOONG::DebugView::Print_(const std::string token, const std::wstring format, va_list arg_ptr)
-{
-	wchar_t build_string[MOONG::DebugView::max_buf_size_] = { 0 };
-
-	StringCchVPrintfW(build_string, MOONG::DebugView::max_buf_size_, format.c_str(), arg_ptr);
-
-	std::string debug_string(MOONG::DebugView::Get_delimiter());
-	debug_string += " ";
-	if (token.length() > 0)
-	{
-		debug_string += token;
-		debug_string += " ";
-	}
-	debug_string += MOONG::ConvertDataType::wstring_to_string(build_string);
 
 	OutputDebugStringA(debug_string.c_str());
 }

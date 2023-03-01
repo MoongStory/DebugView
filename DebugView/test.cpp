@@ -18,7 +18,7 @@ int main()
 		MOONG::DebugView::Fatal(L"Fatal");
 
 		MOONG::DebugView::Debug("test00[%c][%d][%s][%.2lf]", 'a', 3, "한글 출력 000", 2.3456);
-		MOONG::DebugView::Debug(L"test01[%c][%d][%s][%.2lf]", 'a', 3, L"드디어 한글 되네 001", 2.3456);
+		MOONG::DebugView::Debug(L"test01[%c][%d][%ws][%.2lf]", 'a', 3, L"드디어 한글 되네 001", 2.3456);
 
 		MOONG::DebugView::setDelimiter(L"[MOONG_TEST]");
 

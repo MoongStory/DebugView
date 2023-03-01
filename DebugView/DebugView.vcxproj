@@ -142,11 +142,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\ConvertDataType\ConvertDataType\ConvertDataType.cpp" />
+    <ClCompile Include="..\..\StringTool\StringTool\StringTool.cpp" />
     <ClCompile Include="DebugView.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\ConvertDataType\ConvertDataType\ConvertDataType.h" />
+    <ClInclude Include="..\..\StringTool\StringTool\StringTool.h" />
     <ClInclude Include="DebugView.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
