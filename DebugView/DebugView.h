@@ -60,7 +60,6 @@ namespace MOONG
 		static const std::string ERROR_;
 		static const std::string FATAL_;
 		
-		static const unsigned int max_buf_size_;
 		static std::string delimiter_;
 		static unsigned int log_level_;
 		
@@ -98,8 +97,6 @@ namespace MOONG
 		
 		static unsigned int getLogLevel();
 		static void setLogLevel(unsigned int log_level);
-
-		static const unsigned int getMaxBufSize();
 	private:
 		static void Print_(const std::string token, const std::string format, va_list arg_ptr);
 	};

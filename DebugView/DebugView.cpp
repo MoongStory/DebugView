@@ -1,6 +1,7 @@
 #include "DebugView.h"
 
 #include "../../ConvertDataType/ConvertDataType/ConvertDataType.h"
+#include "../../StringTool/StringTool/StringTool.h"
 
 #include <windows.h>
 #include <strsafe.h>
@@ -12,7 +13,6 @@ const std::string MOONG::DebugView::WARN_ = "[WARN]";
 const std::string MOONG::DebugView::ERROR_ = "[ERROR]";
 const std::string MOONG::DebugView::FATAL_ = "[FATAL]";
 
-const unsigned int MOONG::DebugView::max_buf_size_ = 2048;
 std::string MOONG::DebugView::delimiter_ = "[MOONG_DEBUG]";
 unsigned int MOONG::DebugView::log_level_ = MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_TRACE;
 
@@ -239,20 +239,13 @@ void MOONG::DebugView::setLogLevel(unsigned int log_level)
 	}
 }
 
-const unsigned int MOONG::DebugView::getMaxBufSize()
-{
-	return MOONG::DebugView::max_buf_size_;
-}
-
 
 
 
 
 void MOONG::DebugView::Print_(const std::string token, const std::string format, va_list arg_ptr)
 {
-	char build_string[MOONG::DebugView::max_buf_size_] = { 0 };
-
-	StringCchVPrintfA(build_string, MOONG::DebugView::max_buf_size_, format.c_str(), arg_ptr);
+	std::string build_string = MOONG::StringTool::format(format, arg_ptr);
 
 	std::string debug_string(MOONG::DebugView::Get_delimiter());
 	debug_string += " ";
