@@ -33,14 +33,14 @@ int main()
 		strTest000 = "aaa";
 		MOONG::DebugView::Debug(strTest000.GetString());
 
-		MOONG::DebugView::setLogLevel(MOONG::DEBUG_VIEW::LOG_LEVEL::FATAL_);
+		MOONG::DebugView::setLogLevel(MOONG::DEBUG_VIEW::LEVEL::FATAL_);
 
 		CString strTest001;
 		strTest001 = L"bbb";
 		MOONG::DebugView::Debug(strTest001.GetString());
 		MOONG::DebugView::Fatal(strTest001.GetString());
 
-		MOONG::DebugView::setLogLevel(MOONG::DEBUG_VIEW::LOG_LEVEL::TRACE_);
+		MOONG::DebugView::setLogLevel(MOONG::DEBUG_VIEW::LEVEL::TRACE_);
 
 		CString strTest002;
 		strTest002 = L"ccc";

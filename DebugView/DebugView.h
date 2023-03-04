@@ -37,7 +37,7 @@ namespace MOONG
 {
 	namespace DEBUG_VIEW
 	{
-		namespace LOG_LEVEL
+		namespace LEVEL
 		{
 			static const int TRACE_ = 0;	// 경로 추적을 위해 사용한다.
 			static const int DEBUG_ = 1;	// 일반 정보를 상세히 나타낼 때 사용한다.
