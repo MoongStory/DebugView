@@ -14,11 +14,11 @@ const std::string MOONG::DebugView::ERROR_ = "[ERROR]";
 const std::string MOONG::DebugView::FATAL_ = "[FATAL]";
 
 std::string MOONG::DebugView::delimiter_ = "[MOONG_DEBUG]";
-unsigned int MOONG::DebugView::log_level_ = MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_TRACE;
+unsigned int MOONG::DebugView::log_level_ = MOONG::DEBUG_VIEW::LOG_LEVEL::TRACE_;
 
 void MOONG::DebugView::Trace(const std::string format, ...)
 {
-	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_TRACE)
+	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::TRACE_)
 	{
 		va_list arg_ptr;
 
@@ -30,7 +30,7 @@ void MOONG::DebugView::Trace(const std::string format, ...)
 
 void MOONG::DebugView::Trace(const std::wstring format, ...)
 {
-	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_TRACE)
+	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::TRACE_)
 	{
 		va_list arg_ptr;
 
@@ -44,7 +44,7 @@ void MOONG::DebugView::Trace(const std::wstring format, ...)
 
 void MOONG::DebugView::Debug(const std::string format, ...)
 {
-	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_DEBUG)
+	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::DEBUG_)
 	{
 		va_list arg_ptr;
 
@@ -56,7 +56,7 @@ void MOONG::DebugView::Debug(const std::string format, ...)
 
 void MOONG::DebugView::Debug(const std::wstring format, ...)
 {
-	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_DEBUG)
+	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::DEBUG_)
 	{
 		va_list arg_ptr;
 
@@ -70,7 +70,7 @@ void MOONG::DebugView::Debug(const std::wstring format, ...)
 
 void MOONG::DebugView::Info(const std::string format, ...)
 {
-	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_INFO)
+	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::INFO_)
 	{
 		va_list arg_ptr;
 
@@ -82,7 +82,7 @@ void MOONG::DebugView::Info(const std::string format, ...)
 
 void MOONG::DebugView::Info(const std::wstring format, ...)
 {
-	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_INFO)
+	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::INFO_)
 	{
 		va_list arg_ptr;
 
@@ -96,7 +96,7 @@ void MOONG::DebugView::Info(const std::wstring format, ...)
 
 void MOONG::DebugView::Warn(const std::string format, ...)
 {
-	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_WARN)
+	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::WARN_)
 	{
 		va_list arg_ptr;
 
@@ -108,7 +108,7 @@ void MOONG::DebugView::Warn(const std::string format, ...)
 
 void MOONG::DebugView::Warn(const std::wstring format, ...)
 {
-	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_WARN)
+	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::WARN_)
 	{
 		va_list arg_ptr;
 
@@ -122,7 +122,7 @@ void MOONG::DebugView::Warn(const std::wstring format, ...)
 
 void MOONG::DebugView::Error(const std::string format, ...)
 {
-	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_ERROR)
+	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::ERROR_)
 	{
 		va_list arg_ptr;
 
@@ -134,7 +134,7 @@ void MOONG::DebugView::Error(const std::string format, ...)
 
 void MOONG::DebugView::Error(const std::wstring format, ...)
 {
-	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_ERROR)
+	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::ERROR_)
 	{
 		va_list arg_ptr;
 
@@ -148,7 +148,7 @@ void MOONG::DebugView::Error(const std::wstring format, ...)
 
 void MOONG::DebugView::Fatal(const std::string format, ...)
 {
-	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_FATAL)
+	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::FATAL_)
 	{
 		va_list arg_ptr;
 
@@ -160,7 +160,7 @@ void MOONG::DebugView::Fatal(const std::string format, ...)
 
 void MOONG::DebugView::Fatal(const std::wstring format, ...)
 {
-	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_FATAL)
+	if(MOONG::DebugView::getLogLevel() <= MOONG::DEBUG_VIEW::LOG_LEVEL::FATAL_)
 	{
 		va_list arg_ptr;
 
@@ -228,10 +228,10 @@ void MOONG::DebugView::setLogLevel(unsigned int log_level)
 {
 	MOONG::DebugView::log_level_ = log_level;
 
-	if (log_level < MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_TRACE || log_level > MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_FATAL)
+	if (log_level < MOONG::DEBUG_VIEW::LOG_LEVEL::TRACE_ || log_level > MOONG::DEBUG_VIEW::LOG_LEVEL::FATAL_)
 	{
 		MOONG::DebugView::Fatal("Log Level 설정값이 잘못되어 Log Level이 Error Level로 초기화 됩니다.");
-		MOONG::DebugView::log_level_ = MOONG::DEBUG_VIEW::LOG_LEVEL::LEVEL_ERROR;
+		MOONG::DebugView::log_level_ = MOONG::DEBUG_VIEW::LOG_LEVEL::ERROR_;
 	}
 	else
 	{

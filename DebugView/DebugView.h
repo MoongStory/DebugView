@@ -39,12 +39,12 @@ namespace MOONG
 	{
 		namespace LOG_LEVEL
 		{
-			static const int LEVEL_TRACE = 0;	// 경로 추적을 위해 사용한다.
-			static const int LEVEL_DEBUG = 1;	// 일반 정보를 상세히 나타낼 때 사용한다.
-			static const int LEVEL_INFO = 2;	// 일반 정보를 나타낼 때 사용한다.
-			static const int LEVEL_WARN = 3;	// 에러는 아니지만 주의할 필요가 있을 때 사용한다.
-			static const int LEVEL_ERROR = 4;	// 일반 에러가 일어났을 때 사용한다.
-			static const int LEVEL_FATAL = 5;	// 가장 크리티컬한 에러가 일어났을 때 사용한다.
+			static const int TRACE_ = 0;	// 경로 추적을 위해 사용한다.
+			static const int DEBUG_ = 1;	// 일반 정보를 상세히 나타낼 때 사용한다.
+			static const int INFO_ = 2;	// 일반 정보를 나타낼 때 사용한다.
+			static const int WARN_ = 3;	// 에러는 아니지만 주의할 필요가 있을 때 사용한다.
+			static const int ERROR_ = 4;	// 일반 에러가 일어났을 때 사용한다.
+			static const int FATAL_ = 5;	// 가장 크리티컬한 에러가 일어났을 때 사용한다.
 		}
 	}
 	
