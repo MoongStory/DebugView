@@ -66,39 +66,39 @@ namespace MOONG
 		
 		
 	public:
-		static void Trace(const std::string format, ...);
-		static void Trace(const std::wstring format, ...);
+		static void trace(const std::string format, ...);
+		static void trace(const std::wstring format, ...);
 		
-		static void Debug(const std::string format, ...);
-		static void Debug(const std::wstring format, ...);
+		static void debug(const std::string format, ...);
+		static void debug(const std::wstring format, ...);
 		
-		static void Info(const std::string format, ...);
-		static void Info(const std::wstring format, ...);
+		static void info(const std::string format, ...);
+		static void info(const std::wstring format, ...);
 		
-		static void Warn(const std::string format, ...);
-		static void Warn(const std::wstring format, ...);
+		static void warn(const std::string format, ...);
+		static void warn(const std::wstring format, ...);
 		
-		static void Error(const std::string format, ...);
-		static void Error(const std::wstring format, ...);
+		static void error(const std::string format, ...);
+		static void error(const std::wstring format, ...);
 		
-		static void Fatal(const std::string format, ...);
-		static void Fatal(const std::wstring format, ...);
+		static void fatal(const std::string format, ...);
+		static void fatal(const std::wstring format, ...);
 
 
 
-		static void Print(const std::string format, ...);
-		static void Print(const std::wstring format, ...);
+		static void print(const std::string format, ...);
+		static void print(const std::wstring format, ...);
 		
 		
 		
-		static const std::string Get_delimiter();
-		static void setDelimiter(const std::string delimiter);
-		static void setDelimiter(const std::wstring wDelimiter);
+		static const std::string get_delimiter();
+		static void set_delimiter(const std::string delimiter);
+		static void set_delimiter(const std::wstring wDelimiter);
 		
-		static unsigned int getLogLevel();
-		static void setLogLevel(unsigned int log_level);
+		static unsigned int get_log_level();
+		static void set_log_level(unsigned int log_level);
 	private:
-		static void Print_(const std::string token, const std::string format, va_list arg_ptr);
+		static void print_(const std::string token, const std::string format, va_list arg_ptr);
 	};
 }
 
